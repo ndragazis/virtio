@@ -6054,7 +6054,7 @@ The doorbell address within a BAR is calculated as follows:
 \end{lstlisting}
 
 The \field{cap.offset} and \field{doorbell_off_multiplier} are taken from the
-notification capability structure above, and the \field{doorbell_idx} is the
+doorbell capability structure above, and the \field{doorbell_idx} is the
 doorbell number.
 
 \devicenormative{\paragraph}{Doorbell capability}{Device Types / Vhost-user Device Backend / Additional Device Resources over PCI / Doorbell capability}
@@ -6083,7 +6083,7 @@ The notification structure allows MSI-X vectors to be configured for
 notification interrupts.  If MSI-X is not available, bit 2 of the ISR status
 indicates that a notification occurred.
 
-The notification structure is found using the VIRTIO_PCI_CAP_DOORBELL_CFG
+The notification structure is found using the VIRTIO_PCI_CAP_NOTIFICATION_CFG
 capability.
 
 \begin{lstlisting}
