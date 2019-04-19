@@ -320,7 +320,22 @@ disable MSI-X or report device failure.
 \subsubsection{Shared memory capability}\label{sec:Device Types / Vhost-user Device Backend / Additional Device Resources over PCI / Shared Memory capability}
 
 The shared memory location is found using the VIRTIO_PCI_CAP_SHARED_MEMORY_CFG
-capability.
+capability. Using the additional \field{offset_hi} and \field{length_hi}
+fields following the SHARED_MEMORY_CFG capability structure, the shared
+memory region's 64-bit BAR offset is calculated as follows:
+
+\begin{lstlisting}
+        offset_hi << 32 + cap.offset
+\end{lstlisting}
+
+and the shared memory region's 64-bit length is calculated as follows:
+
+\begin{lstlisting}
+        length_hi << 32 + cap.length
+\end{lstlisting}
+
+The \field{cap.offset} and \field{cap.length} fields are taken from the
+SHARED_MEMORY_CFG capability structure.
 
 \devicenormative{\paragraph}{Shared Memory capability}{Device Types / Vhost-user Device Backend / Additional Device Resources over PCI / Shared Memory capability}
 The device MUST present exactly one shared memory capability.
