@@ -15,7 +15,7 @@ Conformance targets:
   \begin{itemize}
     \item Clause \ref{sec:Conformance / Driver Conformance}.
     \item One of clauses \ref{sec:Conformance / Driver Conformance / PCI Driver Conformance}, \ref{sec:Conformance / Driver Conformance / MMIO Driver Conformance} or \ref{sec:Conformance / Driver Conformance / Channel I/O Driver Conformance}.
-    \item One of clauses \ref{sec:Conformance / Driver Conformance / Network Driver Conformance}, \ref{sec:Conformance / Driver Conformance / Block Driver Conformance}, \ref{sec:Conformance / Driver Conformance / Console Driver Conformance}, \ref{sec:Conformance / Driver Conformance / Entropy Driver Conformance}, \ref{sec:Conformance / Driver Conformance / Traditional Memory Balloon Driver Conformance}, \ref{sec:Conformance / Driver Conformance / SCSI Host Driver Conformance}, \ref{sec:Conformance / Driver Conformance / Input Driver Conformance}, \ref{sec:Conformance / Driver Conformance / Crypto Driver Conformance}, \ref{sec:Conformance / Driver Conformance / Socket Driver Conformance} or \ref{sec:Conformance / Driver Conformance / IOMMU Driver Conformance}.
+    \item One of clauses \ref{sec:Conformance / Driver Conformance / Network Driver Conformance}, \ref{sec:Conformance / Driver Conformance / Block Driver Conformance}, \ref{sec:Conformance / Driver Conformance / Console Driver Conformance}, \ref{sec:Conformance / Driver Conformance / Entropy Driver Conformance}, \ref{sec:Conformance / Driver Conformance / Traditional Memory Balloon Driver Conformance}, \ref{sec:Conformance / Driver Conformance / SCSI Host Driver Conformance}, \ref{sec:Conformance / Driver Conformance / Input Driver Conformance}, \ref{sec:Conformance / Driver Conformance / Crypto Driver Conformance}, \ref{sec:Conformance / Driver Conformance / Socket Driver Conformance}, \ref{sec:Conformance / Driver Conformance / IOMMU Driver Conformance} or \ref{sec:Conformance / Driver Conformance / Vhost-user Backend Driver Conformance}.
     \item Clause \ref{sec:Conformance / Legacy Interface: Transitional Device and Transitional Driver Conformance}.
   \end{itemize}
 \item[Device] A device MUST conform to four conformance clauses:
@@ -32,8 +32,9 @@ Conformance targets:
 \ref{sec:Conformance / Device Conformance / Input Device Conformance}, 
 \ref{sec:Conformance / Device Conformance / Crypto Device Conformance}, 
 \ref{sec:Conformance / Device Conformance / Socket Device Conformance}, 
-\ref{sec:Conformance / Device Conformance / RPMB Device Conformance} or 
-\ref{sec:Conformance / Device Conformance / IOMMU Device Conformance}.
+\ref{sec:Conformance / Device Conformance / RPMB Device Conformance}, 
+\ref{sec:Conformance / Device Conformance / IOMMU Device Conformance} or 
+\ref{sec:Conformance / Device Conformance / Vhost-user Backend Device Conformance}.
     \item Clause \ref{sec:Conformance / Legacy Interface: Transitional Device and Transitional Driver Conformance}.
   \end{itemize}
 \end{description}
@@ -218,6 +219,14 @@ An IOMMU driver MUST conform to the following normative statements:
 \item \ref{drivernormative:Device Types / IOMMU Device / Device operations / PROBE request}
 \item \ref{drivernormative:Device Types / IOMMU Device / Device operations / PROBE properties / RESVMEM}
 \item \ref{drivernormative:Device Types / IOMMU Device / Device operations / Fault reporting}
+\end{itemize}
+\conformance{\subsection}{Vhost-user Backend Driver Conformance}\label{sec:Conformance / Driver Conformance / Vhost-user Backend Driver Conformance}
+
+A vhost-user backend driver MUST conform to the following normative statements:
+
+\begin{itemize}
+\item \ref{drivernormative:Device Types / Vhost-user Device Backend / Device configuration layout}
+\item \ref{drivernormative:Device Types / Vhost-user Device Backend / Additional Device Resources over PCI / Notification capability}
 \end{itemize}
 
 \conformance{\section}{Device Conformance}\label{sec:Conformance / Device Conformance}
@@ -406,6 +415,16 @@ An IOMMU device MUST conform to the following normative statements:
 \item \ref{devicenormative:Device Types / IOMMU Device / Device operations / PROBE request}
 \item \ref{devicenormative:Device Types / IOMMU Device / Device operations / PROBE properties / RESVMEM}
 \item \ref{devicenormative:Device Types / IOMMU Device / Device operations / Fault reporting}
+\end{itemize}
+\conformance{\subsection}{Vhost-user Backend Device Conformance}\label{sec:Conformance / Device Conformance / Vhost-user Backend Device Conformance}
+
+A vhost-user backend device MUST conform to the following normative statements:
+
+\begin{itemize}
+\item \ref{devicenormative:Device Types / Vhost-user Device Backend / Device Initialization}
+\item \ref{devicenormative:Device Types / Vhost-user Device Backend / Additional Device Resources over PCI / Doorbell capability}
+\item \ref{devicenormative:Device Types / Vhost-user Device Backend / Additional Device Resources over PCI / Notification capability}
+\item \ref{devicenormative:Device Types / Vhost-user Device Backend / Additional Device Resources over PCI / Shared memory capability}
 \end{itemize}
 
 \conformance{\section}{Legacy Interface: Transitional Device and Transitional Driver Conformance}\label{sec:Conformance / Legacy Interface: Transitional Device and Transitional Driver Conformance}
