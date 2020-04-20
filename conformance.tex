@@ -32,9 +32,8 @@ Conformance targets:
 \ref{sec:Conformance / Device Conformance / Input Device Conformance}, 
 \ref{sec:Conformance / Device Conformance / Crypto Device Conformance}, 
 \ref{sec:Conformance / Device Conformance / Socket Device Conformance}, 
-\ref{sec:Conformance / Device Conformance / RPMB Device Conformance}, 
-\ref{sec:Conformance / Device Conformance / IOMMU Device Conformance} or 
-\ref{sec:Conformance / Device Conformance / Vhost-user Backend Device Conformance}.
+\ref{sec:Conformance / Device Conformance / RPMB Device Conformance} or 
+\ref{sec:Conformance / Device Conformance / IOMMU Device Conformance}.
     \item Clause \ref{sec:Conformance / Legacy Interface: Transitional Device and Transitional Driver Conformance}.
   \end{itemize}
 \end{description}
@@ -226,7 +225,7 @@ A vhost-user backend driver MUST conform to the following normative statements:
 
 \begin{itemize}
 \item \ref{drivernormative:Device Types / Vhost-user Device Backend / Device configuration layout}
-\item \ref{drivernormative:Device Types / Vhost-user Device Backend / Additional Device Resources over PCI / Notification capability}
+\item \ref{drivernormative:Device Types / Vhost-user Device Backend / Device Initialization}
 \end{itemize}
 
 \conformance{\section}{Device Conformance}\label{sec:Conformance / Device Conformance}
@@ -416,17 +415,6 @@ An IOMMU device MUST conform to the following normative statements:
 \item \ref{devicenormative:Device Types / IOMMU Device / Device operations / PROBE properties / RESVMEM}
 \item \ref{devicenormative:Device Types / IOMMU Device / Device operations / Fault reporting}
 \end{itemize}
-\conformance{\subsection}{Vhost-user Backend Device Conformance}\label{sec:Conformance / Device Conformance / Vhost-user Backend Device Conformance}
-
-A vhost-user backend device MUST conform to the following normative statements:
-
-\begin{itemize}
-\item \ref{devicenormative:Device Types / Vhost-user Device Backend / Device Initialization}
-\item \ref{devicenormative:Device Types / Vhost-user Device Backend / Additional Device Resources over PCI / Doorbell capability}
-\item \ref{devicenormative:Device Types / Vhost-user Device Backend / Additional Device Resources over PCI / Notification capability}
-\item \ref{devicenormative:Device Types / Vhost-user Device Backend / Additional Device Resources over PCI / Shared memory capability}
-\end{itemize}
-
 \conformance{\section}{Legacy Interface: Transitional Device and Transitional Driver Conformance}\label{sec:Conformance / Legacy Interface: Transitional Device and Transitional Driver Conformance}
 A conformant implementation MUST be either transitional or
 non-transitional, see \ref{intro:Legacy
