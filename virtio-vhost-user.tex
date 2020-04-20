@@ -42,13 +42,13 @@ No feature bits are defined at this time.
 
 \subsection{Device configuration layout}\label{sec:Device Types / Vhost-user Device Backend / Device configuration layout}
 
-  All fields of this configuration are always available.
+All fields of this configuration are always available.
 
 \begin{lstlisting}
 struct virtio_vhost_user_config {
         le32 status;
-#define VIRTIO_VHOST_USER_STATUS_SLAVE_UP 0
-#define VIRTIO_VHOST_USER_STATUS_MASTER_UP 1
+#define VIRTIO_VHOST_USER_STATUS_SLAVE_UP (1 << 0)
+#define VIRTIO_VHOST_USER_STATUS_MASTER_UP (1 << 1)
         le32 max_vhost_queues;
         u8 uuid[16];
 };
@@ -62,8 +62,11 @@ struct virtio_vhost_user_config {
     the vhost-user master to connect.  The vhost-user master cannot connect
     unless the driver has set this bit first.
 
-    When the driver clears VIRTIO_VHOST_USER_SLAVE_UP while the vhost-user
-    master is connected, the vhost-user master is disconnected.
+    The device sets VIRTIO_VHOST_USER_STATUS_MASTER_UP to indicate that the
+    vhost-user master is connected.
+
+    When the driver clears VIRTIO_VHOST_USER_STATUS_SLAVE_UP while the
+    vhost-user master is connected, the vhost-user master is disconnected.
 
     When the vhost-user master disconnects, both
     VIRTIO_VHOST_USER_STATUS_SLAVE_UP and VIRTIO_VHOST_USER_STATUS_MASTER_UP
@@ -99,7 +102,7 @@ The driver SHOULD fetch the \field{uuid} configuration field to allow
 vhost-user slave programs to identify a specific device among many.
 
 The driver SHOULD place at least one buffer in rxq before setting the
-VIRTIO_VHOST_USER_SLAVE_UP bit in the \field{status} configuration field.
+VIRTIO_VHOST_USER_STATUS_SLAVE_UP bit in the \field{status} configuration field.
 
 The driver MUST handle rxq virtqueue notifications that occur before the
 configuration change notification.  It is possible that a vhost-user protocol
