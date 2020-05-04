@@ -142,10 +142,15 @@ standard version that the driver supports.  If the vhost-user master sends a
 message that is too large for an rxq buffer, then DEVICE_NEEDS_RESET is set and
 the driver must reset the device.
 
-File descriptor passing is handled differently by the vhost-user device
-backend.  When a message is received that carries one or more file descriptors
-according to the vhost-user protocol, additional device resources become
-available to the driver.
+File descriptor passing is handled differently by the vhost-user device backend.
+When a master-initiated message is received that carries one or more file
+descriptors according to the vhost-user protocol, additional device resources
+become available to the driver.
+
+On the contrary, the slave cannot pass file descriptors to the master. For this
+reason, the vhost-user device backend MUST be intercepting the slave's reply to
+the VHOST_USER_GET_PROTOCOL_FEATURES vhost-user message and clearing these
+feature bits that allow the slave to send messages that pass file descriptors.
 
 \subsection{Additional Device Resources}\label{sec:Device Types / Vhost-user Device Backend / Additional Device Resources}
 
