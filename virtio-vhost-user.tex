@@ -220,7 +220,7 @@ resources:
 \item[VHOST_USER_SET_VRING_KICK] The vring kick notification for this queue is available to the driver.  The first notification may occur before the driver has processed this message.
 \item[VHOST_USER_SET_VRING_CALL] The vring call doorbell for this queue is available to the driver.  Writes to the vring call doorbell before this message is received produce no effect.
 \item[VHOST_USER_SET_VRING_ERR] The vring err doorbell for this queue is available to the driver.  Writes to the vring err doorbell before this message is received produce no effect.
-\item[VHOST_USER_SET_SLAVE_REQ_FD] The driver may send vhost-user protocol slave messages on txq.  Buffers put onto txq before this message is received are discarded by the device.
+\item[VHOST_USER_SET_SLAVE_REQ_FD] The driver may send vhost-user protocol slave messages on txq.  Slave-initiated messages put onto txq before this message is received are discarded by the device.
 \end{description}
 
 \subsubsection{Doorbell layout}\label{sec:Device Types / Vhost-user Device Backend / Additional Device Resources / Doorbell layout}
